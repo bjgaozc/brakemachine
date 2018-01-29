@@ -1,0 +1,51 @@
+*{
+	margin:0 auto;
+	padding:0;
+}
+
+body {
+	text-align: center;
+	margin:0 auto;
+	 }
+.bg{
+	width:974px;
+	height:576px;
+	margin:0 auto;
+	background:url(../images/login_images/bg.png) no-repeat;
+	margin-top:40px;
+	}
+.logo{
+	width:100%;
+	height:93px;
+	float:left;
+	margin-top:50px;
+	background:url(../images/login_images/logo.png) center no-repeat;
+	}
+.middle{
+	width:100%;
+	height:200px;
+	float:left;
+	margin-top:50px;
+	}
+.login_tab{
+	margin:0 auto;
+	margin-top:50px;
+	font-size:17px;
+	font-family:"微软雅黑";
+	color:#FFFFFF;
+	font-weight:bold;
+	height:160px;
+	}
+.login_input{
+	width:200px;
+	height:26px;
+	line-height:26px;
+	background:#c4e2ed;
+	border:none;
+	}
+.btn_login{
+	width:151px;
+	height:48px;
+	border:none;
+	background:url(../images/login_images/btn_login.jpg) no-repeat;
+	}

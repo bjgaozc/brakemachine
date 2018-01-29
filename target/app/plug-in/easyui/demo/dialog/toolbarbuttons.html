@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Toolbar and Buttons - jQuery EasyUI Demo</title>
+	<link rel="stylesheet" type="text/css" href="../../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+	<script type="text/javascript" src="../../../jquery/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="../../jquery.easyui.min.1.4.4.js"></script>
+</head>
+<body>
+	<h2>Toolbar and Buttons</h2>
+	<div style="margin:10px 0;">
+		<a href="javascript:void(0)" class="easyui-linkbutton" onclick="$('#dlg').edialog('open')">打开</a>
+		<a href="javascript:void(0)" class="easyui-linkbutton" onclick="$('#dlg').edialog('close')">关闭</a>
+	</div>
+	<div id="dlg" class="easyui-edialog" title="Toolbar and Buttons" style="width:400px;height:200px;padding:10px"
+			data-options="
+				iconCls: 'fa fa-save',
+				modal: true,
+				closed: true,
+				toolbar: [{
+					text:'添加',
+					iconCls:'fa fa-plus',
+					handler:function(){
+						alert('add')
+					}
+				},'-',{
+					text:'保存',
+					iconCls:'fa fa-save',
+					handler:function(){
+						alert('save')
+					}
+				}],
+				buttons: [{
+					text:'确定',
+					iconCls:'fa fa-check',
+					handler:function(){
+						alert('ok');
+					}
+				},{
+					text:'取消',
+					iconCls:'fa fa-remove',
+					handler:function(){
+						alert('cancel');;
+					}
+				}]
+			">
+		The edialog content.
+	</div>
+	
+</body>
+</html>

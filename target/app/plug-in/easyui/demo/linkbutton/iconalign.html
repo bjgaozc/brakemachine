@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Icon Align on LinkButton - jQuery EasyUI Demo</title>
+	<link rel="stylesheet" type="text/css" href="../../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+	<script type="text/javascript" src="../../../jquery/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="../../jquery.easyui.min.1.4.4.js"></script>
+</head>
+<body>
+	<h2>Icon Align on LinkButton</h2>
+	<div id="button-bar">
+		<a href="#" class="easyui-linkbutton" data-options="iconCls:'fa fa-plus'">Add</a>
+		<a href="#" class="easyui-linkbutton" data-options="iconCls:'fa fa-remove'">Remove</a>
+		<a href="#" class="easyui-linkbutton" data-options="iconCls:'fa fa-save'">Save</a>
+		<a href="#" class="easyui-linkbutton" data-options="iconCls:'fa fa-cut',disabled:true">Cut</a>
+	</div>
+	<div style="margin:10px 0">
+		<span>选择图标的位置: </span>
+		<select class="easyui-combobox" id="changeAlign">
+			<option value="left">文字左方</option>
+			<option value="right">文字右方</option>
+			<option value="top">文字上方</option>
+		</select>
+	</div>
+	<script>
+		$(function(){
+			$("#changeAlign").combobox({
+				onChange: function (newval,oldval) {
+					$("#button-bar a").linkbutton({iconAlign:newval});
+				}
+			});
+		});
+	</script>
+</body>
+</html>

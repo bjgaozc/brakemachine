@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>CheckBox Selection on DataGrid - jQuery EasyUI Demo</title>
+	<link rel="stylesheet" type="text/css" href="../../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+	<script type="text/javascript" src="../../../jquery/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="../../jquery.easyui.min.1.4.4.js"></script>
+</head>
+<body>
+	<h2>CheckBox Selection on DataGrid</h2>
+	<table id="dg" class="easyui-datagrid" title="CheckBox Selection on DataGrid" style="width:700px;height:250px"
+			data-options="rownumbers:true,singleSelect:true,url:'datagrid_data1.json',method:'get'">
+		<thead>
+			<tr>
+				<th data-options="field:'ck',checkbox:true"></th>
+				<th data-options="field:'itemid',width:80">Item ID</th>
+				<th data-options="field:'productid',width:100">Product</th>
+				<th data-options="field:'listprice',width:80,align:'right'">List Price</th>
+				<th data-options="field:'unitcost',width:80,align:'right'">Unit Cost</th>
+				<th data-options="field:'attr1',width:220">Attribute</th>
+				<th data-options="field:'status',width:60,align:'center'">Status</th>
+			</tr>
+		</thead>
+	</table>
+	<div style="margin:10px 0;">
+		<span>Selection Mode: </span>
+		<select class="easyui-combobox" id="change">
+			<option value="0">Single Row</option>
+			<option value="1">Multiple Rows</option>
+		</select><br/>
+		<div class="checkbox checkbox-primary">
+			<input id="checkbox1" type="checkbox" checked="checked" onchange="$('#dg').datagrid({selectOnCheck:$(this).is(':checked')})">
+			<label for="checkbox1">
+				SelectOnCheck
+			</label>
+		</div>
+		<div class="checkbox checkbox-primary">
+			<input id="checkbox2" type="checkbox" checked="checked" onchange="$('#dg').datagrid({checkOnSelect:$(this).is(':checked')})">
+			<label for="checkbox2">
+				CheckOnSelect
+			</label>
+		</div>
+	</div>
+	<script>
+		$(function(){
+			$("#change").combobox({
+				onChange: function (newval,oldval) {
+					$('#dg').datagrid({singleSelect:(newval==0)})
+				}
+			});
+			$('#dg').datagrid({
+				onHeaderContextMenu: function(e, field){
+					e.preventDefault();
+					if (!cmenu){
+						createColumnMenu();
+					}
+					cmenu.menu('show', {
+						left:e.pageX,
+						top:e.pageY
+					});
+				}
+			});
+			var cmenu;
+			function createColumnMenu(){
+				cmenu = $('<div/>').appendTo('body');
+				cmenu.menu({
+					onClick: function(item){
+						if (item.iconCls == 'fa fa-check'){
+							$('#dg').datagrid('hideColumn', item.name);
+							cmenu.menu('setIcon', {
+								target: item.target,
+								iconCls: 'fa'
+							});
+						} else {
+							$('#dg').datagrid('showColumn', item.name);
+							cmenu.menu('setIcon', {
+								target: item.target,
+								iconCls: 'fa fa-check'
+							});
+						}
+					}
+				});
+				var fields = $('#dg').datagrid('getColumnFields');
+				for(var i=0; i<fields.length; i++){
+					var field = fields[i];
+					var col = $('#dg').datagrid('getColumnOption', field);
+					cmenu.menu('appendItem', {
+						text: col.title,
+						name: field,
+						iconCls: 'fa fa-check'
+					});
+				}
+			}
+		});
+	</script>
+</body>
+</html>

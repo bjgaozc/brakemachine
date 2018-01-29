@@ -1,0 +1,111 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.sinosoft</groupId>
+	<artifactId>brakemachine</artifactId>
+	<version>3.0.0</version>
+	<packaging>war</packaging>
+	
+	<!-- 公司仓库 -->
+	<repositories>
+		<repository>
+			<id>sinosoft</id>
+			<name>Sinosoft Maven Repository Switchboard</name>
+			<url>http://112.74.69.4/nexus/content/groups/public/</url>
+		</repository>
+	</repositories>
+
+	<properties>
+		<sej.version>3.0.0</sej.version>
+	</properties>
+	
+	<dependencies>
+		<!-- 自定义的依赖包 -->
+		<dependency>
+            <groupId>com.sinosoft</groupId>
+            <artifactId>sinosoft-epassport-jeecg</artifactId>
+            <version>${sej.version}</version>
+       	</dependency>
+		<!-- web依赖包 begin -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jsp-api</artifactId>
+			<version>2.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<!-- web依赖包 end -->
+		
+		<!-- webservice模块 
+		<dependency>
+            <groupId>com.sinosoft</groupId>
+            <artifactId>sej-modules-cxf</artifactId>
+            <version>${sej.version}</version>
+        </dependency>
+        -->
+		<!-- 公共模块 -->
+        <dependency>
+            <groupId>com.sinosoft</groupId>
+            <artifactId>sej-modules-web</artifactId>
+            <version>${sej.version}</version>
+            <type>war</type>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.sinosoft</groupId>
+            <artifactId>sej-modules-ace</artifactId>
+            <version>${sej.version}</version>
+            <type>war</type>
+            <scope>runtime</scope>
+        </dependency>
+		<!-- EP扩展模块 -->
+		<dependency>
+            <groupId>com.sinosoft</groupId>
+            <artifactId>sej-modules-ep</artifactId>
+            <version>${sej.version}</version>
+        </dependency>
+		
+		
+		<!-- ui模块 -->
+		<dependency>
+		    <groupId>com.sinosoft</groupId>
+		    <artifactId>sej-modules-ui</artifactId>
+		    <version>${sej.version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.sinosoft</groupId>
+		    <artifactId>sej-ui-adminlte</artifactId>
+		    <version>${sej.version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.sinosoft</groupId>
+		    <artifactId>sej-ui-plugins</artifactId>
+		    <version>${sej.version}</version>
+		</dependency>
+		
+		
+		
+	</dependencies>
+
+	<build>
+		<finalName>app</finalName>
+		<plugins>
+			<!-- 配置编译插件，制定jdk版本 -->
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	
+</project>

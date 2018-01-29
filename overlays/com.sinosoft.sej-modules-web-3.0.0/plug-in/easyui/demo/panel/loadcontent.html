@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Load Panel Content - jQuery EasyUI Demo</title>
+	<link rel="stylesheet" type="text/css" href="../../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+	<script type="text/javascript" src="../../../jquery/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="../../jquery.easyui.min.1.4.4.js"></script>
+</head>
+<body>
+	<h2>Load Panel Content</h2>
+	<div class="demo-info">
+		<div class="demo-tip fa fa-info"></div>
+		<div>点击刷新按钮载入内容</div>
+	</div>
+	<div style="margin:10px 0;"></div>
+	<div id="p" class="easyui-panel" title="Load Panel Content" style="width:500px;height:200px;padding:10px;"
+			data-options="
+				tools:[{
+					iconCls:'fa fa-refresh',
+					handler:function(){
+						$('#p').panel('refresh', '_content.html');
+					}
+				}]
+			">
+	</div>
+</body>
+</html>

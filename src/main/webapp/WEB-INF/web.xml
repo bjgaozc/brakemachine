@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	version="2.5">
+	
+	<context-param>
+		<param-name>webAppRootKey</param-name>
+		<param-value>demo</param-value>
+	</context-param>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			/WEB-INF/applicationContext.xml
+		</param-value>
+	</context-param>
+	
+	<filter>
+		<filter-name>openSessionInViewFilter</filter-name>
+		<filter-class>org.springframework.orm.hibernate4.support.OpenSessionInViewFilter</filter-class>
+		<init-param>
+			<param-name>singleSession</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>openSessionInViewFilter</filter-name>
+		<url-pattern>*.do</url-pattern>
+	</filter-mapping>
+	<filter>
+		<description>字符集过滤器</description>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<description>字符集编码</description>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<filter>
+		<filter-name>druidWebStatFilter</filter-name>
+		<filter-class>com.alibaba.druid.support.http.WebStatFilter</filter-class>
+		<init-param>
+			<param-name>exclusions</param-name>
+			<param-value>/css/*,/context/*,/plug-in/*,*.js,*.css,*/druid*,/attached/*,*.jsp</param-value>
+		</init-param>
+		<init-param>
+			<param-name>principalSessionName</param-name>
+			<param-value>sessionInfo</param-value>
+		</init-param>
+		<init-param>
+			<param-name>profileEnable</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>druidWebStatFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<filter>
+    	<filter-name>securityFilter</filter-name>
+    	<filter-class>com.sinosoft.app.core.filters.SecurityFilter</filter-class>
+  	</filter>
+  	<filter-mapping>
+    	<filter-name>securityFilter</filter-name>
+    	<url-pattern>/*</url-pattern>
+    	<dispatcher>REQUEST</dispatcher>
+    	<dispatcher>FORWARD</dispatcher>
+  	</filter-mapping>
+	<!-- 提高系统性能，压缩js,css等文件 -->
+	<filter>
+		<filter-name>ecsideExport</filter-name>
+		<filter-class>org.jeecgframework.core.aop.GZipFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>ecsideExport</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<listener>
+		<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+	</listener>
+	<listener>
+		<description>spring监听器</description>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<listener>
+		<description>Introspector缓存清除监听器</description>
+		<listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
+	</listener>
+	<listener>
+		<description>request监听器</description>
+		<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+	</listener>
+	<listener>
+		<description>系统初始化监听器</description>
+		<listener-class>org.jeecgframework.web.system.listener.InitListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>org.jeecgframework.web.system.listener.OnlineListener</listener-class>
+	</listener>
+
+	<servlet>
+		<description>spring mvc servlet</description>
+		<servlet-name>springMvc</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<description>spring mvc 配置文件</description>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/spring-mvc.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>springMvc</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>druidStatView</servlet-name>
+		<servlet-class>com.alibaba.druid.support.http.StatViewServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>druidStatView</servlet-name>
+		<url-pattern>/webpage/system/druid/*</url-pattern>
+	</servlet-mapping>
+	<!-- cxf WebService服务 
+	<servlet>
+		<servlet-name>cxfService</servlet-name>
+		<servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>cxfService</servlet-name>
+		<url-pattern>/ws/*</url-pattern>
+	</servlet-mapping>
+	-->
+	
+	<session-config>
+		<session-timeout>480</session-timeout>
+	</session-config>
+	
+	<welcome-file-list>
+		<welcome-file>/index.jsp</welcome-file>
+	</welcome-file-list>
+	
+	<error-page>
+       <error-code>404</error-code>
+       <location>/webpage/common/security/404.jsp</location>
+    </error-page>
+    <error-page>
+       <error-code>403</error-code>
+       <location>/webpage/common/security/403.jsp</location>
+    </error-page>
+    <error-page>
+       <error-code>500</error-code>
+       <location>/webpage/common/security/500.jsp</location>
+    </error-page>
+    <error-page>
+       <error-code>400</error-code>
+       <location>/webpage/common/security/400.jsp</location>
+    </error-page>
+
+	<!-- 以下配置可以禁用不需要的方法 begin -->
+	<security-constraint>
+	   	<web-resource-collection>
+          	<url-pattern>/*</url-pattern>
+          	<http-method>DELETE</http-method>
+          	<http-method>PUT</http-method>
+          	<http-method>HEAD</http-method>
+          	<http-method>TRACE</http-method>
+          	<http-method>OPTIONS</http-method>
+     	</web-resource-collection>
+     	<auth-constraint>
+        	<role-name></role-name>
+     	</auth-constraint>
+     	<user-data-constraint>
+        	<transport-guarantee>NONE</transport-guarantee>
+     	</user-data-constraint>
+  	</security-constraint>
+  	<security-role>
+     	<role-name></role-name>
+  	</security-role>
+	<!-- 以下配置可以禁用不需要的方法 end   -->
+
+</web-app>

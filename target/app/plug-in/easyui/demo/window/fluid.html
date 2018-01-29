@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Fluid Window - jQuery EasyUI Demo</title>
+	<link rel="stylesheet" type="text/css" href="../../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+	<script type="text/javascript" src="../../../jquery/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="../../jquery.easyui.min.1.4.4.js"></script>
+</head>
+<body>
+	<h2>Fluid Window</h2>
+	<p>This example shows how to set the width of Window to a percentage of its parent container.</p>
+	<div style="margin:20px 0;"></div>
+	<div id="w" class="easyui-window" title="Fluid Window" style="width:80%;height:200px;padding:10px;" data-options="
+			iconCls:'fa fa-save',
+			onResize:function(){
+				$(this).window('hcenter');
+			}">
+		<p>The window has a width of 80%.</p>
+	</div>
+</body>
+</html>

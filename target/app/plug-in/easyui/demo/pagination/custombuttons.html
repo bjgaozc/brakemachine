@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Custom Pagination Buttons - jQuery EasyUI Demo</title>
+	<link rel="stylesheet" type="text/css" href="../../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+	<script type="text/javascript" src="../../../jquery/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="../../jquery.easyui.min.1.4.4.js"></script>
+</head>
+<body>
+	<h2>Custom Pagination Buttons</h2>
+	<div class="demo-info">
+		<div class="demo-tip fa fa-info"></div>
+		<div>在分页栏添加普通按钮</div>
+	</div>
+	<div style="margin:10px 0;"></div>
+	<div class="easyui-pagination" data-options="total:114,buttons:buttons" style="border:1px solid #ddd;"></div>
+	<script>
+		var buttons = [{
+			iconCls:'fa fa-plus',
+			handler:function(){
+				alert('add');
+			}
+		},{
+			iconCls:'fa fa-cut',
+			handler:function(){
+				alert('cut');
+			}
+		},{
+			iconCls:'fa fa-save',
+			handler:function(){
+				alert('save');
+			}
+		}];
+	</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Search Category - jQuery EasyUI Demo</title>
+	<link rel="stylesheet" type="text/css" href="../../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+	<script type="text/javascript" src="../../../jquery/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="../../jquery.easyui.min.1.4.4.js"></script>
+</head>
+<body>
+	<h2>Search Category</h2>
+	<input class="easyui-searchbox" data-options="prompt:'Please Input Value',menu:'#mm',searcher:doSearch" style="width:300px"/>
+	<div id="mm" style="width:120px">
+		<div data-options="name:'all',iconCls:'fa fa-check'">All News</div>
+		<div data-options="name:'sports'">Sports News</div>
+	</div>
+	<script>
+		function doSearch(value,name){
+			alert('You input: ' + value+'('+name+')');
+		}
+	</script>
+
+</body>
+</html>

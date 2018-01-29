@@ -1,0 +1,227 @@
+@charset "utf-8";
+/*------------------------------common part start------------------------------*/
+* {
+	padding: 0;
+	margin: 0;
+	font-size: 14px;
+}
+html, body, iframe { height: 100%; }
+html,body {
+	font-family: "Microsoft YaHei",arial;
+}
+body {
+	overflow-y: hidden;
+	color: #333;
+}
+.pull-left {
+	float: left;
+}
+.pull-right {
+	float: right;
+}
+.placeholder { color: #aaa; }
+/*------------------------------common part end------------------------------*/
+/*------------------------------layout part start----------------------------*/
+.north {
+    background: #007fd0;
+    background: -moz-linear-gradient(top,  #007fd0 30%, #ffffff 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#007fd0), color-stop(100%,#ffffff));
+    background: -webkit-linear-gradient(top,  #007fd0 30%,#ffffff 100%);
+    background: -o-linear-gradient(top,  #007fd0 30%,#ffffff 100%);
+    background: -ms-linear-gradient(top,  #007fd0 30%,#ffffff 100%);
+    background: linear-gradient(to bottom,  #007fd0 30%,#ffffff 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#007fd0', endColorstr='#ffffff',GradientType=0 );
+	overflow: hidden;
+}
+.header {
+	float: left;
+    width: 100%;
+	height: 100px;
+}
+.west {
+	width: 200px;
+	padding: 0;
+	background: #007fd0;
+}
+.center {
+	overflow: hidden;
+}
+/*------------------------------layout part end------------------------------*/
+/*------------------------------header part start----------------------------*/
+.logo {
+	height: 50px;
+	width: 50%;
+	background: url(../images/logo-365x60.png) no-repeat left;
+}
+.header > .header-wrap {
+	height: 50px;
+}
+.header > .header-wrap > .info {
+	width: 50%;
+}
+.header > .header-wrap > .info > ul {
+	margin-right: 20px;
+}
+.header > .header-wrap > .info > ul > li {
+	float: left;
+    list-style: none;
+    padding: 11px;
+    border-radius: 0;
+    cursor: pointer;
+    -webkit-transition: all ease-in-out .35s;
+    -o-transition: all ease-in-out .35s;
+    transition: all ease-in-out 0.35s;
+}
+.header > .header-wrap > .info > ul > li span,
+.header > .header-wrap > .info > ul > li i {
+	color: #fff;
+}
+.header > .header-wrap > .info > ul > li span {
+	height: 28px;
+	line-height: 28px;
+	font-size: 14px;
+}
+.header span.m-btn-downarrow {
+	margin-left: 3px;
+    margin-top: -14px;
+}
+.header span.fa-caret-down {
+	-moz-transition: all .5s linear;
+	-webkit-transition: all .5s linear;
+	transition: all .5s linear;
+}
+.header .m-btn-plain-active span.fa-caret-down {
+	-webkit-transform: rotate(180deg);
+	-o-transform: rotate(180deg);
+	-moz-transform: rotate(180deg);
+	-ms-transform: rotate(180deg);
+	transform: rotate(180deg);
+}
+.header .m-btn-plain-active, 
+.header .s-btn-plain-active,
+.header > .info > ul > li:hover {
+	-webkit-box-shadow: 0 0 15px 0 rgba(255, 255, 255, 0.8);
+    -o-box-shadow: 0 0 15px 0 rgba(255, 255, 255, 0.8);
+    -moz-box-shadow: 0 0 15px 0 rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 15px 0 rgba(255, 255, 255, 0.8);
+}
+.header > .header-wrap > .info > ul > li.l-btn-plain:hover {
+	background: transparent;
+	border: none;
+	border-radius: 0;
+}
+#layout_north_kzmbMenu {
+	width: 131px!important;
+}
+#layout_north_kzmbMenu .menu-icon {
+	margin-top: -6px!important;
+	left: 5px;
+}
+#layout_north_kzmbMenu .menu-active {
+  	background-color: #007fd0;
+  	color: #fff;
+}
+/*------------------------------header part end----------------------------*/
+/*------------------------------sildebar part start------------------------*/
+.west .panel-loading {
+	color: #fff;
+}
+#menu_level_child .panel-title .fa {
+	margin: 0 5px 0 1px;
+}
+#menu_level_child .accordion-body {
+	border-width: 0;
+}
+#menu_level_child .tree-node-selected a {
+	color: #fff;
+}
+#menu_level_child .tree-node .fa,
+#menu_level_child .tree-title,
+#menu_level_child .tree-title .nav {
+	color: #fff;
+}
+#menu_level_child .tree-node {
+	margin: 5px 0 5px 0;
+	border-bottom: none;
+    background: rgba(0, 0, 0, 0.1);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#19000000',endColorstr='#19000000');
+}
+#menu_level_child .tree-node.tree-node-selected {
+	background: rgba(0, 0, 0, 0.3);
+	border-left: 5px solid #fa0;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4D000000',endColorstr='#4D000000');
+}
+#menu_level_child .tree-node:hover {
+	background: none;
+	background: rgba(0, 0, 0, 0.2);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#40000000',endColorstr='#40000000');
+}
+.menu_top {
+	margin-left: 0; 
+}
+#menu_level_one .tabs-header {
+	padding-top: 0;
+	border: none;
+	background: none;
+	background: rgba(0,127,208,.8);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#C8007FD0',endColorstr='#C8007FD0');
+}
+#menu_level_one .tabs-header .tabs-scroller-left,
+#menu_level_one .tabs-header .tabs-scroller-right {
+    color: #fff;
+    border: 1px solid #007fd0;
+}
+#menu_level_one .tabs li {
+	height: 50px!important;
+	margin: 0;
+}
+#menu_level_one .tabs li .tabs-title {
+   	padding: 15px 25px;
+}
+#menu_level_one .tabs .tabs-inner {
+	line-height: 50px!important;
+	border: none;
+    background-color: transparent;
+    background: none;
+	color: #fff;
+	display: table-cell;
+   	vertical-align: middle;
+   	padding: 0;
+   	filter: none;
+}
+#menu_level_one .tabs li .tabs-inner:hover {
+	background: none;
+   	background: rgba(0, 0, 0, 0.2);
+   	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#33000000',endColorstr='#33000000');
+}
+#menu_level_one .tabs .tabs-selected .tabs-inner:hover,
+#menu_level_one .tabs .tabs-selected .tabs-inner {
+	background: none;
+	background: rgba(0, 0, 0, 0.3);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4D000000',endColorstr='#4D000000');
+  	font-weight: normal;
+}
+#menu_level_one .tabs {
+	height: 48px!important;
+	padding-left: 0;
+	border: none;
+	border-bottom: 2px solid #fff;
+}
+#menu_level_one .tabs .tabs-inner .tabs-title {
+	font-size: 16px;
+}
+#menu_level_one .tabs-panels {
+	height: 0!important;
+	border-width: 0!important;
+}
+
+/*------------------------------sildebar part end--------------------------*/
+/*------------------------------center part start--------------------------*/
+.easyui-menu {
+	width: 150px!important;
+}
+.box {
+	margin: 15px;
+}
+
+/*------------------------------center part end--------------------------*/

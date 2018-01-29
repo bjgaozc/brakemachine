@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Menu Events - jQuery EasyUI Demo</title>
+	<link rel="stylesheet" type="text/css" href="../../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+	<script type="text/javascript" src="../../../jquery/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="../../jquery.easyui.min.1.4.4.js"></script>
+</head>
+<body>
+	<h2>Menu Events</h2>
+	<div id="mm" class="easyui-menu" data-options="onClick:menuHandler" style="width:120px;">
+		<div data-options="name:'new'">New</div>
+		<div data-options="name:'save',iconCls:'fa fa-save'">Save</div>
+		<div data-options="name:'print',iconCls:'fa fa-print'">Print</div>
+		<div class="menu-sep"></div>
+		<div data-options="name:'exit'">Exit</div>
+	</div>
+	<script>
+		function menuHandler(item){
+			alert(item.name);
+		}
+		$(function(){
+			$(document).bind('contextmenu',function(e){
+				e.preventDefault();
+				$('#mm').menu('show', {
+					left: e.pageX,
+					top: e.pageY
+				});
+			});
+		});
+	</script>
+</body>
+</html>

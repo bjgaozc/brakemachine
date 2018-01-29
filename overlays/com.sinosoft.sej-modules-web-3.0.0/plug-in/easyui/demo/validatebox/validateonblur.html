@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Validate On Blur - jQuery EasyUI Demo</title>
+	<link rel="stylesheet" type="text/css" href="../../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+	<script type="text/javascript" src="../../../jquery/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="../../jquery.easyui.min.1.4.4.js"></script>
+</head>
+<body>
+	<h2>Validate On Blur</h2>
+	<p>Active validation on first blur event.</p>
+	<div style="margin:20px 0;"></div>
+	<div class="easyui-panel" title="Register" style="width:400px;padding:10px 60px 20px 60px">
+		<form class="form-inline">
+			<table>
+				<tr>
+					<td>User Name:</td>
+					<td><input class="easyui-validatebox form-control" data-options="required:true,validType:'length[3,10]',novalidate:true"></td>
+				</tr>
+				<tr>
+					<td>Email:</td>
+					<td><input class="easyui-validatebox form-control" data-options="required:true,validType:'email',novalidate:true"></td>
+				</tr>
+				<tr>
+					<td>Birthday:</td>
+					<td><input class="easyui-datebox" data-options="required:true,novalidate:true"></td>
+				</tr>
+				<tr>
+					<td>URL:</td>
+					<td><input class="easyui-validatebox form-control" data-options="required:true,validType:'url',novalidate:true"></td>
+				</tr>
+				<tr>
+					<td>Phone:</td>
+					<td><input class="easyui-validatebox form-control" data-options="required:true,novalidate:true"></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<script type="text/javascript">
+		$(function(){
+			$('.validatebox-text').bind('blur', function(){
+				$(this).validatebox('enableValidation').validatebox('validate');
+			});
+		})
+	</script>
+
+</body>
+</html>
