@@ -1,2 +1,0 @@
-<link rel="stylesheet" type="text/css" href="webpage/com/sinosoft/modules/wf/ui/moWf-common.css"></link>
-<script type="text/javascript" src="webpage/com/sinosoft/modules/wf/ui/moWf-common.js"></script>

@@ -1,1 +1,0 @@
-Highcharts JS v4.1.5
