@@ -69,6 +69,7 @@ public class TeCommonController extends EpCommonController {
 			}
 		}
 		log.debug("p="+p);
+
 		return view(p);
 	}
 	
